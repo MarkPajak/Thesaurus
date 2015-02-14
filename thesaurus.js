@@ -1,4 +1,4 @@
-define(['jquery','text!Thesaurus.JSON','bootstrap/tooltip','bootstrap/popover'], function($,Thesaurus) {
+define(['jquery','text!Thesaurus.JSON'], function($,Thesaurus) {
 Thesaurus=$.parseJSON(Thesaurus)
 
 FindTermDefinition= function(termTomatch){
