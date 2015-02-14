@@ -1,18 +1,18 @@
 require.config({
 	paths:{
 	jquery:'https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min',
-	Tooltip:'tooltip',
-	Popover:'popover'
+	Tooltip:'lib/tooltip',
+	Popover:'lib/popover'
 
 	
 	}
 	})
 
 
-require(['thesaurus','Tooltip','Popover',], function (thesaurus) {
+require(['thesaurus','jquery','Tooltip','Popover',], function (thesaurus) {
 
 
-$('body').html((thesaurus.ReplaceBodyTextWithPopover($('body').text())))
+$('body').html((thesaurus($('body').text())))
 $('.thesauruspopover').popover({ html : true, container: 'body'})
 
 
