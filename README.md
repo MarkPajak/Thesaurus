@@ -8,16 +8,22 @@ Create a list of terms and definitions in JSON format as follows:
 
 
 [
+
   {
+  
     "term": "World",
     
     "definition": "the earth, together with all of its countries and peoples."
   },
+  
   {
+  
     "term": "Hello",
     
     "definition": "used as a greeting or to begin a telephone conversation."
+    
   }
+  
 ]
 
 apply the formatting by using the following syntax:
