@@ -12,7 +12,7 @@ require.config({
 require(['thesaurus','jquery','Tooltip','Popover',], function (thesaurus) {
 
 
-$('body').html((thesaurus($('body').text())))
+$('#textBox').html((thesaurus($('#textBox').text())))
 $('.thesauruspopover').popover({ html : true, container: 'body'})
 
 
