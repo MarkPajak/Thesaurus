@@ -18,6 +18,6 @@ Create a list of terms and definitions in JSON format as follows:
   }
 ]
 
-# apply the formatting by using the following syntax:
+apply the formatting by using the following syntax:
 
 $('#textBox').html((thesaurus($('#textBox').text())))
