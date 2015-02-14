@@ -1,7 +1,11 @@
 # Thesaurus
-create an interactive popover glossary using a JSON thesaurus
+create an interactive popover glossary using a JSON thesaurus. This library auutomatically incorporates bootstrap-popover html into a block of text where terms are found that match entries in a pre-populated thesaurus. 
 
-Format of thesaurus.JSON as follows:
+# Set up:
+
+Create a list of terms and definitions in JSON format as follows:
+
+
 
 [
   {
@@ -13,3 +17,7 @@ Format of thesaurus.JSON as follows:
     "definition": "used as a greeting or to begin a telephone conversation."
   }
 ]
+
+# apply the formatting by using the following syntax:
+
+$('#textBox').html((thesaurus($('#textBox').text())))
