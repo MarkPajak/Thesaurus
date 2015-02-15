@@ -6,7 +6,9 @@ create an interactive popover glossary using a JSON thesaurus. This library auut
 This project uses the following libraries:
 
 JQuery
+
 Bootstrap - popover
+
 Bootstrap - tooltip
 
 Depencdencies are managed using the require.js framework
