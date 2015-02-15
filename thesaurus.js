@@ -1,3 +1,12 @@
+/**
+ * jQuery Thesaurus v1.0
+ *
+ * by Mark Pajak 
+ * 
+ * Licensed under the MIT license.
+ */
+
+
 define(['jquery','text!Thesaurus.JSON'], function($,Thesaurus) {
 
 
