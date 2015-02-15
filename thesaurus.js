@@ -1,7 +1,44 @@
 define(['jquery','text!Thesaurus.JSON'], function($,Thesaurus) {
-Thesaurus=$.parseJSON(Thesaurus)
 
-FindTermDefinition= function(termTomatch){
+
+(function ($) {
+
+    $.Thesaurus = function (options, element) {
+	
+		Thesaurus=$.parseJSON(Thesaurus)
+        this.element = $(element);		
+        this._init(options);
+    };
+
+    $.Thesaurus.settings = {};
+
+    $.Thesaurus.prototype = {
+
+        _init: function (options) {
+            this.element.html(this._renderItems())
+			$('.thesauruspopover').popover({ html : true, container: 'body'})
+        },
+
+      
+
+        _renderItems: function ($els) {
+	
+					var self = this;
+					var BodyText=this.element.text() ||"xxx"					
+					var text = BodyText.split(' ');					
+					var NewBodyText=[];
+					
+					for( var i = 0, len=text.length; i<len; i++ ) {							
+							NewBodyText.push( this._ReplaceWordWithPopOverHTML(text[i]) )
+					}
+           	
+					return NewBodyText.join(" ");	
+
+
+          
+        },
+		
+		_FindTermDefinition: function(termTomatch){
 
 			var termTomatch = termTomatch||"xxxx"
 			var TermDefinition = false;
@@ -14,46 +51,18 @@ FindTermDefinition= function(termTomatch){
 				 }
 			})
 			
- return TermDefinition 
+		return TermDefinition 
 
-},
+		},
 
-
-
- addPopover= function(title,dataContent,unpoppedText,idToappendTo,TitleYes){
- 
-				var title = title||"Optional Title"
-				var dataContent = dataContent||"Content that is too long to display because there is too much of it to fit in your table cell. But it all fits in this popover!"
-				var unpoppedText = unpoppedText||"Content that is too long to display..."
-				var popOverhtml =  '<p><td>';
-				if(TitleYes)	{popOverhtml += '<a  role="button" data-toggle="popover" data-trigger="focus"  href="#" style="color:#FFFFFF;text-decoration: none;" class=" too-long" title="' + title + '"   data-content="' + dataContent  + '"  data-placement="bottom">';}
-				else
-				{
-				popOverhtml += '<a href="#"  style="color:#FFFFFF;text-decoration: none;" role="button" data-toggle="popover" data-trigger="focus"data-container="body" class=" too-long"    data-content="' + dataContent  + '"  data-placement="bottom">';
-				
-				}
-				popOverhtml += unpoppedText + '</a>';
-				popOverhtml += '</td>';
-				var StickpopoverAfter = document.getElementById(idToappendTo);
-				$(StickpopoverAfter).append( popOverhtml)
-
-				$('.too-long').click(function(e) {
-					 // do something fancy
-					 return false; // prevent default click action from happening!
-					 e.preventDefault(); // same thing as above
-				});
-				
-return popOverhtml
-},
-
-
-
-ReplaceWordWithPopOverHTML= function (Word){
+		
+		
+		_ReplaceWordWithPopOverHTML: function (Word){
 
 					var returnedHTML =Word 
-					var Definition = this.FindTermDefinition(Word)
+					var Definition = this._FindTermDefinition(Word)
 
-					if(this.FindTermDefinition(Word)){
+					if(this._FindTermDefinition(Word)){
 
 							var title = title||"Definition"
 							var dataContent = Definition||"Content that is too long to display because there is too much of it to fit in your table cell. But it all fits in this popover!"
@@ -66,24 +75,30 @@ ReplaceWordWithPopOverHTML= function (Word){
 
 					return returnedHTML
 
-}
- 
+		},
 
-									
-return  function(BodyText){
-					
-					var BodyText=BodyText||"xxx"
-					var text = BodyText.split(' ');					
-					var NewBodyText=[];
-					
-					for( var i = 0, len=text.length; i<len; i++ ) {							
-							NewBodyText.push( this.ReplaceWordWithPopOverHTML(text[i]) )
-					}
-           	
-					return NewBodyText.join(" ");	
-}
-									})
+  
+        
+    }
 
 
+    $.fn.thesaurus = function (options, e) {
+
+	
+		if (typeof options === 'string') {
+            this.each(function () {
+                var container = $.data(this, 'thesaurus');
+                container[options].apply(container, [e]);
+            });
+        } else {
+            this.each(function () {
+                $.data(this, 'thesaurus', new $.Thesaurus(options, this));
+            });
+        }
+        return this;
+    }
+
+})(jQuery)
+});
 
 

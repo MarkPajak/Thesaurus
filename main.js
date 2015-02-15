@@ -12,8 +12,8 @@ require.config({
 require(['thesaurus','jquery','Tooltip','Popover',], function (thesaurus) {
 
 
-$('#textBox').html((thesaurus($('#textBox').text())))
-$('.thesauruspopover').popover({ html : true, container: 'body'})
+$('#textBox').thesaurus()
+
 
 
 });
