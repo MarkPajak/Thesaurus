@@ -3,7 +3,7 @@ create an interactive popover glossary using a JSON thesaurus. This library auut
 
 # Set up:
 
-Create a list of terms and definitions in JSON format as follows:
+1.) Create a list of terms and definitions in JSON format as follows:
 
 
 
@@ -21,6 +21,6 @@ Create a list of terms and definitions in JSON format as follows:
     
   }]
 
-apply the formatting by using the following syntax:
+2.) apply the formatting to any individual text block using the following syntax:
 
-$('#textBox').html((thesaurus($('#textBox').text())))
+$('#textBox').thesaurus()
