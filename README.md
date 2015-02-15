@@ -1,6 +1,16 @@
 # Thesaurus
 create an interactive popover glossary using a JSON thesaurus. This library auutomatically incorporates bootstrap-popover html into a block of text where terms are found that match entries in a pre-populated thesaurus. 
 
+# Dependencies: 
+
+This project uses the following libraries:
+
+JQuery
+Bootstrap - popover
+Bootstrap - tooltip
+
+Depencdencies are managed using the require.js framework
+
 # Set up:
 
 1.) Create a list of terms and definitions in JSON format as follows:
