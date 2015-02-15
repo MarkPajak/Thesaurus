@@ -34,5 +34,6 @@ Depencdencies are managed using the require.js framework
   }]
 
 2.) apply the formatting to any individual text block using the following syntax:
-
+```
 $('#textBox').thesaurus()
+```
