@@ -1,7 +1,7 @@
 # Thesaurus
 Create an interactive glossary for any web text...
 
-This library auutomatically incorporates bootstrap-popover html into a block of text where terms are found that match entries in a pre-populated thesaurus. This code has been implemented in touch screen kiosks for museums where the thesaurus.JSON is generated directly from a database managed by curators, and the text presented to museum visitors is augmented with term descriptions.
+This library automatically incorporates bootstrap-popover html into a block of text where terms are found that match entries in a pre-populated thesaurus. This code has been implemented in touch screen kiosks for museums where the thesaurus.JSON is generated directly from a database managed by curators, and the text presented to museum visitors is augmented with term descriptions.
 
 # Dependencies: 
 
