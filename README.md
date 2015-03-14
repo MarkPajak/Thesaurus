@@ -32,8 +32,8 @@ Depencdencies are managed using the require.js framework
     "definition": "used as a greeting or to begin a telephone conversation."
     
   }]
-
+```
 2.) apply the formatting to any individual text block using the following syntax:
-
+```
 $('#textBox').thesaurus()
 ```
